@@ -2,6 +2,28 @@
  PLANS FOR YEAR 2023
 ######################
 
+MOST IMPORTANT:
+###################
+
+1) Slightly rework endpoints/controllers, something like this (new/edit are wrong):
+
+/dogs      GET  -> list of dogs
+/dogs/new  GET  -> form add new dog
+/dogs      POST -> adding new dog
+/dogs/:id  GET  -> info about 1 dog
+/dogs/:id/edit GET  -> form edit dog
+/dogs/:id      PUT  -> update dog
+
+2) Additional field "Part of series" for books. For example Harry Potter
+series has 7 book titles, and Lord Of The Rings series has 3:
+Fellowship of the ring, The Two Towers, Return of the King,
+Our search should have option searching by series name.
+
+3) Better Server Side Verification - Very important - fields like ISBN or telephone number should be verfied against regex on Server side,
+
+4) Moving Business Logic from Controllers to Model / Service classes
+ 
+--------------------------------------------------------------
 1) Add return book button. When we go into book details (books/{id}) and the book is rented, the "return book" button should be visible,
 
 2) Add button. In tab "Rented Books" each book should have option "View Info"
@@ -9,25 +31,16 @@
 3) Additional field "telephone number" for user, it should be validated
 in JQUERY format (\d\d\d\-\d\d\d-\d\d\d)
 
-4) Additional field "Part of series" for books. For example Harry Potter
-series has 7 book titles, and Lord Of The Rings series has 3:
-Fellowship of the ring, The Two Towers, Return of the King,
-Our search should have option searching by series name.
-
-5) Very important - fields like ISBN or telephone number should be verfied against regex on Server side,
-
-6) Refactoring of returning of the book - currently we use user id AND
+4) Refactoring of returning of the book - currently we use user id AND
 book id - book id alone should be enough,
 
-7) Limit of rented books - max 3 books for user, and if user already has
+5) Limit of rented books - max 3 books for user, and if user already has
 3, cannot book another one
 
-8) Currently - if we want to add the same book, we have to do this manually copying all of the values. We should have a button + number input - clicking button adds identical books with the same data. Amount
+6) Currently - if we want to add the same book, we have to do this manually copying all of the values. We should have a button + number input - clicking button adds identical books with the same data. Amount
 of added copies i from inside mentioned input.
 
 -------------------------------------------
-9) Verify APP using sonar,
+ADDITIONAL:
 
-10) Consider moving Business Logic from Controllers to
-Model / Service classes
- 
+1) Verify APP using sonar,
