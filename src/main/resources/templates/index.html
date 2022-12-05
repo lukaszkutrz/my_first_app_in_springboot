@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ENG" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:replace="fragments/links-to-css-and-js"></th:block>
+</head>
+
+<body>
+    <div class="main-container menu-panel ml-5 mr-5 mt-4 w-70 p-4">
+        <div th:replace="fragments/app-title"></div>
+
+        <div class="navigation">
+            <hr />
+            <hr />
+            <hr />
+        </div>
+
+        <div class="page-content main-menu">
+            <div class="page-title menu-page-title">
+                <h2>Main Menu</h2>
+            </div>
+
+            <div class="small-space"></div>
+
+            <div class="menu-panel">
+                <a href="/books">
+                    <button type="button" class="btn btn-light button-menu">Search Books</button>
+                </a>
+                <th:block sec:authorize="hasRole('ROLE_LIBRARIAN')">
+                    <a href="/users">
+                        <button type="button" class="btn btn-light button-menu">Search Users</button>
+                    </a>
+                    <a href="/rented-books">
+                        <button type="button" class="btn btn-light button-menu">Rented Books</button>
+                    </a>
+                    <a href="/new-users">
+                        <button type="button" class="btn btn-light button-menu">New User</button>
+                    </a>
+                    <a href="/new-books">
+                        <button type="button" class="btn btn-light button-menu">New Book</button>
+                    </a>
+                </th:block>
+                
+                <th:block sec:authorize="hasRole('ROLE_READER')">
+                    <a th:if="${currentLibraryCardId != null}"
+                        th:href="@{/books-rented-by-user/{id}(id=${currentLibraryCardId})}">
+                        <button type="button" class="btn btn-light button-menu">Rented Books</button>
+                    </a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+    
+    <div class="big-space"></div>
+</body>
+
+</html>

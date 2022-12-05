@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Search Rented Books</title>
+    <th:block th:replace="fragments/links-to-css-and-js"></th:block>
+</head>
+
+<body>
+    <div th:replace="fragments/alerts"></div>
+
+    <div class="main-container item-listing-panel ml-5 mr-5 mt-4 w-90 p-4">
+
+        <div th:replace="fragments/app-title"></div>
+        <div th:replace="fragments/navbar"></div>
+
+        <div class="page-title">
+            <h4>Search Rented Books</h4>
+            <hr class="hr-below-pagetitle">
+        </div>
+
+        <div class="searchingPanel">
+            <div class="form-group">
+                <form th:action="@{/rented-books}" method="get">
+                    <label class="fixed-width-label-wide" for="bookId">Book ID:</label>
+                    <input type="number" name="bookId" id="bookId" class="number-input-inline" />
+                    <button style="display: inline-block" type="submit"
+                        class="btn btn-success book-rental-btn-mini space-left">Search</button>
+                </form>
+                <hr />
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="small-space"></div>
+
+            <table class="table table-striped book-rental-table">
+                <colgroup>
+                    <col span="1" style="width: 17%;">
+                    <col span="1" style="width: 17%;">
+                    <col span="1" style="width: 17%;">
+                    <col span="1" style="width: 45%;">
+                </colgroup>
+
+                <tr>
+                    <th>Title:</th>
+                    <th>Author:</th>
+                    <th>Book Id:</th>
+                    <th class="align-center">Operations:</th>
+                </tr>
+
+                <tr th:each="book: ${rentedBooks}">
+                    <td class="content" th:text="${book.title}" />
+                    <td class="content" th:text="${book.author}" />
+                    <td class="content" th:text="${book.bookId}" />
+
+                    <td class="content align-center">
+                        <th:block sec:authorize="hasRole('ROLE_LIBRARIAN')">
+
+                            <form class="content align-center" action="#"
+                                th:action="@{/return-books/{id}(id=${bookIdsToOwnerIds.get(book.bookId)})}" method="post">
+
+                                <input type="hidden" th:name="bookId" th:value="${book.bookId}">
+                                <div class="submit-div">
+                                    <input type="submit" value="Return Book" class="btn btn-info book-rental-btn-mini">
+                                </div>
+                            </form>
+                        </th:block>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="small-space"></div>
+
+            <div sec:authorize="hasRole('ROLE_LIBRARIAN')" class="left-side-buttons">
+                <a href="/new-books">
+                    <button type="button" value="Submit" class="btn btn-lg btn-success book-rental-btn-mini">Add New
+                        Book</button>
+                </a>
+            </div>
+
+            <div class="small-space"></div>
+        </div>
+	</div>
+    
+    <div class="big-space"></div>
+</body>
+
+</html>

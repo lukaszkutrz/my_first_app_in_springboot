@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   
+   <head>
+      <title>Add User</title>
+      <th:block th:replace="fragments/links-to-css-and-js"></th:block>
+   </head>
+   
+   <body>
+   
+      <div th:replace="fragments/alerts"></div>
+      <div class="main-container edit-item-panel ml-5 mr-5 mt-4 w-85 p-4">
+         
+         <div th:replace="fragments/app-title"></div>
+         <div th:replace="fragments/navbar"></div>
+         
+         <div class="page-title">
+            <h4>Adding New User</h4>
+            <hr class="hr-below-pagetitle">
+         </div>
+         
+         <div class="page-content">
+            <form action="#" id="add-user-form" th:action="@{/users}" th:object="${user}" method="post">
+               <div class="form-group">
+                  <label for="userName">Name and Surname:</label>
+                  <input class="form-control small-input" type="text" th:field="*{userName}" id="userName" name="userName"
+                     placeholder="UserName" maxlength="255">
+                  <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
+                  <div class="invalid-value" id="userName-invalid">This field cannot be empty!</div>
+                 
+                  <label for="login">Login:</label>
+                  <input class="form-control small-input" type="text" th:field="*{login}" id="login" name="login"
+                     placeholder="Login" maxlength="25">
+                  <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+                  <div class="invalid-value" id="login-invalid">This field must not be empty, should have at least 8
+                        chars (_a-zA-Z0-9 and NO blank characters in the middle)!
+                  </div>
+                  <br>
+                  
+                  <label for="role">User Role:</label>
+                  <select class="small-input" id="role" name="role" th:field="*{libraryUserRole}">
+                     <option th:each="roleOption :${T(library.enums.LibraryUserRoleType).values()}"
+                        th:value="${roleOption}"
+                        th:text="${roleOption}"></option>
+                  </select>
+                  <div class="invalid-value" id="role-invalid">This field cannot be empty!</div>
+                  <div class="small-space"></div>
+               </div>
+               
+               <div class="left-side-button">
+                  <input type="submit" value="Create User" id="add-user-btn"
+                     class="btn btn-success btn-lg book-rental-btn">
+               </div>
+            </form>
+            
+         </div>
+      </div>
+      
+      <div class="big-space"></div>
+   </body>
+</html>

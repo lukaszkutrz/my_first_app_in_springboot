@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Message</title>
+<th:block th:replace="fragments/links-to-css-and-js"></th:block>    
+</head>
+
+   <body>
+      <div class="main-container show-item-panel ml-5 mr-5 mt-4 w-85 p-4">
+      
+         <div th:replace="fragments/app-title"></div> <br/>
+
+         <div class="page-content error-message-page">
+            <div class="small-space"></div>
+
+            <div class="page-title">
+                <h4>Error Message</h4>
+                <hr class="hr-below-pagetitle">
+            </div>
+    
+            <div class="small-space"></div>
+
+            <div id="messagePlaceholder" class="">
+            <b>[ERROR]</b> Requested resource does not exist!
+            </div>
+            
+            <div class="big-space"></div>
+         </div>
+         
+         <div class="big-space"></div>
+
+         <a href="\">  
+            <button type="button" class="btn btn-danger btn-lg">Go To Menu</button>
+         </a>
+      </div>
+      
+      <div class="big-space"></div>
+   </body>
+</html>

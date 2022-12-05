@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Search Books</title>
+<th:block th:replace="fragments/links-to-css-and-js"></th:block>
+</head>
+
+<body>
+    <div th:replace="fragments/alerts"></div>
+
+    <div class="main-container item-listing-panel ml-5 mr-5 mt-4 w-90 p-4">
+
+        <div th:replace="fragments/app-title"></div>
+        <div th:replace="fragments/navbar"></div>
+
+        <div class="page-title">
+            <h4>Search Books</h4>
+            <hr class="hr-below-pagetitle">
+        </div>
+
+        <div class="searchingPanel">
+            <form th:action="@{/books}" method="get">
+                <div class="form-group">
+                    <label class="fixed-width-label-narrow" for="title">Book title: &nbsp;</label>
+                    <input type="text" th:value="${title}" class="form-control medium-input-inline" id="title"
+                        name="title" placeholder="Find book by title">
+                </div>
+                <div class="form-group">
+                    <label class="fixed-width-label-narrow" for="categories">Category: &nbsp;</label>
+                    <input type="text" th:value="${categories}" class="form-control medium-input-inline" id="categories"
+                        name="categories" placeholder="Find book by category">
+                </div>
+
+                <div class="form-group">
+                    <label class="fixed-width-label-narrow" for="author">Author: &nbsp;</label>
+                    <input type="text" th:value="${author}" class="form-control medium-input-inline" id="author"
+                        name="author" placeholder="Find book by author">
+                </div>
+                <button type="submit" class="btn btn-success book-rental-btn-mini">Search</button>
+            </form>
+        </div>
+
+        <hr/>
+        <div class="page-content">
+            <div class="small-space"></div>
+
+            <table class="table table-striped book-rental-table">
+                <colgroup>
+                    <col span="1" style="width: 3%;">
+                    <col span="1" style="width: 9%;">
+                    <col span="1" style="width: 9%;">
+                    <col span="1" style="width: 8%;">
+                    <col span="1" style="width: 9%;">
+                    <col span="1" style="width: 62%;">
+                </colgroup>
+
+                <tr>
+                    <th></th>
+                    <th>Title:</th>
+                    <th>Author:</th>
+                    <th>Book Id:</th>
+                    <th>Shelf:</th>
+                    <th class="align-center">Operations:</th>
+                </tr>
+                
+                <tr th:each="book: ${allBooks}">
+                    <td class="content" th:if="${bookIdToCanBookBeRentedMap.get(book.bookId)}"><span
+                            class="free">(F)</span>
+                    </td>
+                    <td class="content" th:if="${!bookIdToCanBookBeRentedMap.get(book.bookId)}"><span
+                            class="booked">[B]</span></td>
+                    <td class="content" th:text="${book.title}"></td>
+                    <td class="content" th:text="${book.author}"></td>
+                    <td class="content" th:text="${book.bookId}"></td>
+                    <td class="content" th:text="${book.shelf}"></td>
+
+                    <td class="content align-center">
+                        <th:block sec:authorize="hasRole('ROLE_LIBRARIAN')">
+                            <form class="ahref-for-button" action="#" th:action="@{/rent-books/{id}(id=${book.bookId})}"
+                                th:object="${book}" method="post">
+
+                                <th:block th:if="${bookIdToCanBookBeRentedMap.get(book.bookId)}">
+                                    <label for="userLibraryCardId" class="inline-label">LIB CARD ID:</label>
+
+                                    <input type="number" th:value="${userLibraryCardId}"
+                                        class="form-control very-small-input-inline" id="userLibraryCardId"
+                                        name="userLibraryCardId" />
+                                    <div class="submit-div">
+                                        <input type="submit" value="Rent Book"
+                                            class="btn btn-success book-rental-btn-mini">&nbsp;|
+                                    </div>
+                                </th:block>
+                            </form>
+                        </th:block>
+
+                        <a class="ahref-for-button" th:href="@{/edit/books/{id}(id=${book.bookId})}"
+                            sec:authorize="hasRole('ROLE_LIBRARIAN')">
+                            <button type="button" value="button" class="btn btn-info book-rental-btn-mini">Edit</button>
+                        </a>
+
+                        <a class="view-book-info ahref-for-button"
+                            sec:authorize="hasRole('ROLE_READER') || hasRole('ROLE_LIBRARIAN')"
+                            th:href="@{/books/{id}(id=${book.bookId})}">
+                            <button type="button" value="button" class="btn btn-secondary book-rental-btn-mini">View
+                                Info
+                            </button>
+                        </a>
+
+                    </td>
+                </tr>
+            </table>
+
+            <div class="small-space"></div>
+
+            <div sec:authorize="hasRole('ROLE_LIBRARIAN')" class="left-side-buttons">
+                <a href="/new-books">
+                    <button type="button" value="Submit" class="btn btn-lg btn-success book-rental-btn-mini">Add New
+                        Book</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="big-space"></div>
+</body>
+
+</html>

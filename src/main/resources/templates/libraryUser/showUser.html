@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Details</title>
+<th:block th:replace="fragments/links-to-css-and-js"></th:block>	
+</head>
+
+  <body>
+    <div th:replace="fragments/alerts"></div>
+
+      <div class="main-container show-item-panel ml-5 mr-5 mt-4 w-85 p-4">
+	  
+         <div th:replace="fragments/app-title"></div>
+         <div th:replace="fragments/navbar"></div>
+		 
+         <div class="page-title">
+            <h4>Show User Info</h4>
+            <hr class="hr-below-pagetitle">
+         </div>
+		 
+         <div class="page-content">
+            <form th:action="@{/users/{id}(id=${userId})}" th:object="${user}">
+               <table class="table book-rental-table show-item-table">
+                  <tr>
+                     <td class="rowTitle">Username:</td>
+                     <td class="content" th:text="${user.userName}"></td> 
+                  </tr>
+                  <tr>
+                     <td class="rowTitle">Login:</td>
+                     <td class="content" th:text="${user.login}"></td>
+                  </tr>   
+                  <tr>
+                     <td class="rowTitle">User role:</td>
+                     <td class="content" th:text="${user.libraryUserRole}"></td>
+                  </tr>   
+                  <tr> 
+                     <td class="rowTitle">Library CARD ID:</td>
+                     <td class="content" th:text="${user.libraryCardId}"></td>
+                  </tr>
+               </table>
+               
+               <div class="small-space"></div>
+               
+               <div class="buttons">
+			   		<span class="operations">Operations:</span>
+			   		
+                    <a th:href="@{/books-rented-by-user/{id}(id=${user.libraryCardId})}">
+                     <button type="button" value="Submit" class="btn btn-info book-rental-btn">Rented Books
+                     </button>
+                    </a>
+                    <a th:href="@{/edit/users/{id}(id=${user.libraryCardId})}">
+                       <button type="button" value="Submit" class="btn btn-secondary book-rental-btn">Edit User</button>
+                    </a>
+                    <a th:href="@{/delete/users/{id}(id=${user.libraryCardId})}">
+                       <button type="button" value="Submit" class="btn btn-danger book-rental-btn delete-item-button">Delete User</button>
+                    </a>
+               </div>
+               	
+               <div class="big-space"></div>
+            </form>
+         </div>
+      </div>
+	  
+	  <div class="big-space"></div>
+  </body>
+</html>
