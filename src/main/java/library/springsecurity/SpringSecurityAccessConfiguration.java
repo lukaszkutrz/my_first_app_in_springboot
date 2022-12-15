@@ -58,19 +58,21 @@ public class SpringSecurityAccessConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
         .antMatchers("/users/**").access("hasRole('ROLE_LIBRARIAN')")
-        .antMatchers("/new-books/**").access("hasRole('ROLE_LIBRARIAN')") 
-        .antMatchers("/new-users/**").access("hasRole('ROLE_LIBRARIAN')") 
+        .antMatchers("/books/new/**").access("hasRole('ROLE_LIBRARIAN')") 
+        .antMatchers("/users/new/**").access("hasRole('ROLE_LIBRARIAN')") 
         .antMatchers("/rented-books/**").access("hasRole('ROLE_LIBRARIAN')")
         .antMatchers("/return-books/**").access("hasRole('ROLE_LIBRARIAN')")
-        .antMatchers("/edit/books/**").access("hasRole('ROLE_LIBRARIAN')") 
-        .antMatchers("/edit/users/**").access("hasRole('ROLE_LIBRARIAN')")
+        .antMatchers("/books/**/edit").access("hasRole('ROLE_LIBRARIAN')") 
+        .antMatchers("/users/**/edit").access("hasRole('ROLE_LIBRARIAN')")
         .antMatchers("/rent-books/**").access("hasRole('ROLE_LIBRARIAN')")
         .antMatchers("/delete/users/**").access("hasRole('ROLE_LIBRARIAN')")
         
         .antMatchers("/my-books/**").access("hasRole('ROLE_READER')")
         .antMatchers("/books/**").access("hasRole('ROLE_READER')") 
         .antMatchers("/books-rented-by-user/**").access("hasRole('ROLE_READER')") 
-
+        .antMatchers("/js/**").permitAll()
+        .antMatchers("/css/**").permitAll()
+        
         .antMatchers("/**").authenticated()        
         .and().formLogin().permitAll();
         

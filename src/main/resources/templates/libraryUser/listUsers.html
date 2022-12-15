@@ -61,7 +61,7 @@
                         <button type="button" value="button" class="btn btn-secondary book-rental-btn">View User Info
                         </button>
                     </a>
-                    <a th:href="@{/edit/users/{id}(id=${user.libraryCardId})}">
+                    <a th:href="@{/users/{id}/edit(id=${user.libraryCardId})}">
                         <button type="button" value="button" class="btn btn-info book-rental-btn">Edit User Info
                         </button>
                     </a>
@@ -72,7 +72,7 @@
         <div class="small-space"></div>
 
         <div class="left-side-buttons">
-            <a href="/new-users">
+            <a href="/users/new">
                 <button type="button" class="btn btn-success book-rental-btn btn-lg">Add Library User</button>
             </a>
         </div>

@@ -57,7 +57,7 @@
                     <td class="content align-center">
                         <th:block sec:authorize="hasRole('ROLE_LIBRARIAN')">
 
-                            <form class="content align-center" action="#"
+                            <form class="ahref-for-button content align-center" action="#"
                                 th:action="@{/return-books/{id}(id=${bookIdsToOwnerIds.get(book.bookId)})}" method="post">
 
                                 <input type="hidden" th:name="bookId" th:value="${book.bookId}">
@@ -65,6 +65,14 @@
                                     <input type="submit" value="Return Book" class="btn btn-info book-rental-btn-mini">
                                 </div>
                             </form>
+                            
+				             <a class="view-book-info ahref-for-button" sec:authorize="hasRole('ROLE_LIBRARIAN')"
+				                 th:href="@{/books/{id}(id=${book.bookId})}">
+				                 <button type="button" value="button" class="btn btn-secondary book-rental-btn-mini">View
+				                     Info
+				                 </button>
+				             </a>
+                            
                         </th:block>
                     </td>
                 </tr>
@@ -73,11 +81,12 @@
             <div class="small-space"></div>
 
             <div sec:authorize="hasRole('ROLE_LIBRARIAN')" class="left-side-buttons">
-                <a href="/new-books">
+                <a href="/books/new">
                     <button type="button" value="Submit" class="btn btn-lg btn-success book-rental-btn-mini">Add New
                         Book</button>
                 </a>
             </div>
+         
 
             <div class="small-space"></div>
         </div>

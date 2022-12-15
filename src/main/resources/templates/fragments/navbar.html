@@ -21,10 +21,10 @@
                     <a class="nav-link" href="/rented-books">Rented Books</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_LIBRARIAN')" class="nav-item">
-                    <a class="nav-link" href="/new-books">New Book</a>
+                    <a class="nav-link" href="/books/new">New Book</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_LIBRARIAN')" class="nav-item">
-                    <a class="nav-link" href="/new-users">New User</a>
+                    <a class="nav-link" href="/users/new">New User</a>
                 </li>
                 <li sec:authorize="!hasRole('ROLE_LIBRARIAN')" class="nav-item">
                     <a class="nav-link" href="/my-books">My Books</a>

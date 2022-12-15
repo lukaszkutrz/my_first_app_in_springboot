@@ -28,7 +28,7 @@ public class LibraryUserController {
     @Autowired
     private RentalRepository rentalRepository;
 
-    @GetMapping("/new-users")
+    @GetMapping("/users/new")
     public String showAddUserForm(Model model) {
         var user = new LibraryUser();
         model.addAttribute("user", user);
@@ -81,7 +81,7 @@ public class LibraryUserController {
         return "libraryUser/showUser";
     }
 
-    @GetMapping("/edit/users/{id}")
+    @GetMapping("/users/{id}/edit")
     public String showUpdateUserForm(@PathVariable("id") long id, Model model) {
         var user = libraryUserRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user ID:" + id));

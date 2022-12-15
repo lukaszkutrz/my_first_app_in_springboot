@@ -4,24 +4,14 @@
 
 MOST IMPORTANT:
 ###################
-
-1) [[EASY]] Slightly rework endpoints/controllers, something like this (new/edit are wrong):
-
-/dogs      GET  -> list of dogs
-/dogs/new  GET  -> form add new dog
-/dogs      POST -> adding new dog
-/dogs/:id  GET  -> info about 1 dog
-/dogs/:id/edit GET  -> form edit dog
-/dogs/:id      PUT  -> update dog
-
-2) Moving Business Logic from Controllers to Model / Service classes
-
-3) [[EASY]] Add button "View Info" when checking rented books. 
-In tab "Rented Books" each book should have option "View Info"
-
-4) [[EASY]] Change "[B]" booked to "[R]" rented, when displaying table
-
+ 
+1) Moving Business Logic from Controllers to Model / Service classes
+ so we can run app offline
+ 
 --------------------------------------------------------------
+OTHER
+######
+
 1) Better Server Side Verification - Very important - fields like
  ISBN or telephone number should be verfied against regex on Server side,
 

@@ -69,7 +69,7 @@
                             class="free">(F)</span>
                     </td>
                     <td class="content" th:if="${!bookIdToCanBookBeRentedMap.get(book.bookId)}"><span
-                            class="booked">[B]</span></td>
+                            class="booked">[R]</span></td>
                     <td class="content" th:text="${book.title}"></td>
                     <td class="content" th:text="${book.author}"></td>
                     <td class="content" th:text="${book.bookId}"></td>
@@ -94,7 +94,7 @@
                             </form>
                         </th:block>
 
-                        <a class="ahref-for-button" th:href="@{/edit/books/{id}(id=${book.bookId})}"
+                        <a class="ahref-for-button" th:href="@{/books/{id}/edit(id=${book.bookId})}"
                             sec:authorize="hasRole('ROLE_LIBRARIAN')">
                             <button type="button" value="button" class="btn btn-info book-rental-btn-mini">Edit</button>
                         </a>
@@ -114,7 +114,7 @@
             <div class="small-space"></div>
 
             <div sec:authorize="hasRole('ROLE_LIBRARIAN')" class="left-side-buttons">
-                <a href="/new-books">
+                <a href="/books/new">
                     <button type="button" value="Submit" class="btn btn-lg btn-success book-rental-btn-mini">Add New
                         Book</button>
                 </a>

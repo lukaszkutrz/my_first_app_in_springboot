@@ -26,7 +26,7 @@ public class BookController {
     @Autowired
     private RentalRepository rentalRepository;
     
-    @GetMapping("/new-books")
+    @GetMapping("/books/new")
     public String showAddBookForm(Model model) {
         var book = new Book();
         model.addAttribute("book", book);
@@ -83,7 +83,7 @@ public class BookController {
         return "book/showBook";
     }
 
-    @GetMapping("/edit/books/{id}")
+    @GetMapping("/books/{id}/edit")
     public String showUpdateBookForm(@PathVariable("id") int id, Model model) {
         var book = bookRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("book", "bookId", id));
