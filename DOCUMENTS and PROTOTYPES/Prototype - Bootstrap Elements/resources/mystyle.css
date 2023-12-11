@@ -1,0 +1,27 @@
+
+div.mycontainer {	
+	margin-left: 6%;
+	margin-top: 6%;
+	margin-right: 25%; 
+	font-family: Times New Roman, sans-serif; 
+}
+
+.btn-lg {
+		min-width: 170px;
+		border: solid 1px lightgray;
+}
+
+.thead-dark {
+	background-color: lightgray;
+}
+
+.selectionList {
+		min-width: 150px;
+		min-height: 30px;
+		padding: 5 px;
+		margin: 5 px;
+}
+
+.mycheckbox {
+	margin: 3px;
+}

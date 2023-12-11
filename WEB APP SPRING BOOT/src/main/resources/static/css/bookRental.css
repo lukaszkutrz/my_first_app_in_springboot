@@ -1,0 +1,367 @@
+/* ALL PAGES - COMMON LAYOUT */
+
+.main-container {
+	border-width: 1px;
+	border-style: dotted;
+	border-color: darkgray;
+	font-family: Georgia;
+	color: black;
+	letter-spacing: 1px;
+}
+
+.w-85 {
+	width: 85%;
+}
+
+.w-90 {
+	width: 90%;
+}
+
+/* COMMON PART - TITLES AND NAVIGATION BARS */
+
+.title-panel h1 {
+	letter-spacing: 4px;
+	margin-bottom: 0.4em;
+	margin-top: 0.3em;
+}
+
+.page-title h4 {
+	color: #484848;
+	margin: 0.8em;
+	font-size: 1.6rem;
+}
+
+.nav-item {
+	margin-right: 10px;
+}
+
+.hr-menu {
+	height: 3px;
+	margin-top: 0px;
+	margin-bottom: 0px;	
+	background-color: lightgrey;
+}
+
+.hr-below-pagetitle {
+	height: 1px;
+	margin-top: 2px;
+	margin-bottom: 13px;	
+}
+
+.hr-above-menu {
+	width: 30em;
+}
+
+span.brownlabel {
+	color: #8B0000;
+	letter-spacing: 1px;
+}
+
+/* FOR PAGE -> index.html */
+
+div.main-menu {
+	position: relative;
+	left: 21%;
+}
+
+button.button-menu  {
+	position: relative;
+	left: 2%;
+	display: block;
+	margin: 0.5em;
+	width: 17em;
+	font-size: 1.2em;
+	color: black;
+}
+
+.menu-panel a:hover {
+	text-decoration: none;
+}
+
+.menu-page-title {
+	text-align: center;
+	position: relative;
+	left: 5%;
+	display: block;
+	width: 17em;
+}
+
+.menu-page-title h2 {
+	color: black;
+}
+
+/* for FORMS */
+.small-input  {
+	width: 40%;
+	height: 25px;
+	margin-bottom: 2px;
+	max-width: 300px;
+}
+
+.very-small-input  {
+    width: 30%;
+    height: 25px;
+    margin-bottom: 2px;
+}
+
+select.small-input {
+	border-color: lightgray;
+	margin-left: 5px;
+}
+
+.number-input-inline, .small-input-inline, .very-small-input-inline {
+	height: 30px;
+	display: inline;
+	margin-bottom: 2px;
+}
+
+.number-input-inline {
+	width: 15%;
+}
+
+.small-input-inline {
+	width: 40%;
+	max-width: 300px;
+}
+
+textarea.description {
+	max-width: 800px;
+}
+
+.medium-input-inline {
+	height: 30px;
+	display: inline;
+	margin-bottom: 2px;
+	width: 30%;
+}
+
+.very-small-input-inline {
+	width: 100px;
+	margin-right: 5px;
+}
+
+label.fixed-width-label {
+	width: 12em;
+}
+
+label.fixed-width-label-narrow {
+	width: 7em;
+}
+
+label.fixed-width-label-wide {
+	margin-right: 4px;
+}
+
+/* FOR PAGE -> addBook.html */
+
+div.categories div {
+	display: inline-block;
+	width: 20em;
+	margin: 3px;
+}
+
+div.categories div label {
+	padding: 2px;
+}
+
+input.number-input {
+	display: inline-block;
+	width: 6em;
+	height: 30px;
+	margin-bottom: 3px;
+}
+
+div.categories input {
+	display: inline;
+	width: 20px; 
+	height: 20px;
+}
+
+div.categories {
+	padding-left: 15px;
+}
+
+/* FOR PAGE -> addUser.html */
+
+.selectRole {
+	 border-color: lightgray;
+}
+
+/* FOR PAGE -> showUser, showBook */
+
+div.small-space {
+	display: block;
+	height: 1em;
+}
+
+div.big-space {
+	display: block;
+	height: 3em;
+}
+
+table.show-item-table td {
+	border: none;
+	padding: 10px;
+}
+
+table.show-item-table td.content {
+	width: 20em;
+}
+
+table.show-item-table td.rowTitle {
+	width: 13em;
+}
+
+td.rowTitle {
+	color: #484848;
+}
+
+div.field-large-text p, .card-id-span {
+	background-color: #f8f8f8;
+	padding: 8px;
+	padding-bottom: 4px;
+	margin-bottom: 1em;
+	width: 85%;
+}
+
+label.field-name-label {
+	color: #484848;
+	padding-left: 5px;
+}
+
+.green {
+	font-weight: bold;
+	color: green;
+}
+
+.red {
+	font-weight: bold;
+	color:red;
+}
+
+/* CONTROL BUTTONS - EDIT, REMOVE*/
+
+div.left-side-button {
+	position: relative;
+	left: 1%;
+}
+
+div.control-buttons {
+	position: relative;
+	left: 68%;
+}
+
+button.book-rental-btn {
+	min-width: 7em;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+button.book-rental-btn-mini {
+	min-width: 5em;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+div.submit-div {
+	display: inline-block;
+	margin: 5px;
+}
+
+/* users, books */ 
+
+table.book-rental-table th.align-center {
+	text-align: center;
+}
+
+table.book-rental-table{
+    font-size: 14px;
+}
+
+table td.large-column {
+	min-width: 550px; 
+}
+
+span.booked {
+	font-weight: bold;
+	color: red;
+}
+
+span.free {
+	font-weight: bold;
+	color: green;
+}
+
+/* FORM VALIDATION */
+
+.invalid-value {
+	display: none;
+	color: red;
+}
+/* ------------------------- */
+
+span.operations {
+	display: inline-block;
+	margin: 11px;
+}
+
+/* ERROR MESSAGES */
+
+div.error-message-page {
+    padding: 20px;
+    width: 70%;
+    color: rgb(198, 0, 0);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(183, 0, 0);
+}
+
+div.error-message-page h4 {
+    color: rgb(255, 0, 0);
+}
+
+/* ALERTS AFTER ACTIONS */
+
+.alert {
+  display:inline-block;
+}
+
+.alert-danger, .alert-success {
+    padding-top: 14px;
+    min-width: 40%;
+    padding-left: 3%;
+    margin: 1px;
+    margin-left: 3rem;
+}
+
+h1.app-title {
+    display: inline-block;
+    padding-right: 2%;
+}
+
+img.logo {
+    display: inline-block;
+}
+
+/* OTHER */
+
+a.a-view-book-info {
+    display: inline-block;
+}
+
+td.fat {
+    font-weight: bold;
+}
+
+a.ahref-for-button, form.ahref-for-button {
+    display: inline-block;
+}
+
+button.space-left {
+    margin-left: 1rem;
+}
+
+div.message-rented {
+	font-weight: bold;
+}

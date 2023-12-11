@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+      <link rel="stylesheet" href="bookRental.css">
+   </head>
+   <body>
+      <div class="main-container edit-item-panel ml-5 mr-5 mt-4 w-70 p-4">
+	  
+         <div class="title-panel">
+            <h1>Book Rental <span class="brownlabel"> Management System</span></h1>
+         </div>
+		 
+         <div class="navigation">
+            <hr class="hr-menu">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <!-- ^ another option "light" -->
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Main Menu</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listBooks.html">Search Books</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listUsers.html">Search Users</a>
+                     </li>
+					 <li class="nav-item">
+                        <a class="nav-link" href="addBook.html">New Book</a>
+                     </li>
+					 <li class="nav-item">
+                        <a class="nav-link" href="addUser.html">New User</a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <hr class="hr-menu">
+         </div>
+         <div class="page-title">
+            <h2>Add Book</h2>
+            <hr class="hr-below-pagetitle">
+         </div>
+         <div class="page-content">
+            <form action="/editBook/123">
+               <div class="form-group">
+                  <label class="fixed-width-label" for="title">Book title:</label>
+                  <input type="text" class="form-control small-input-inline" id="title" name="title">
+               </div>
+               <div class="form-group">
+                  <label class="fixed-width-label" for="author">Author:</label>
+                  <input type="text" class="form-control small-input-inline" id="author" name="author">
+               </div>
+               <div class="form-group">
+                  <label class="fixed-width-label" for="isbn">ISBN:</label>
+                  <input type="text" class="form-control small-input-inline" id="isbn" name="isbn">
+               </div>
+               <div class="form-group">
+                  <label class="fixed-width-label" for="publicationYear">Year of Publication:</label>
+                  <input type="number" class="form-control number-input" id="publicationYear" name="publicationYear" min="1" max="2050" maxlength="4">
+               </div>
+               <div class="form-group">
+                  <label class="fixed-width-label" for="copies">Number of copies:</label>
+                  <input type="number" class="form-control number-input" id="copies" name="copies">
+               </div>
+
+               <div class="form-group">
+                  <label class="fixed-width-label font-weight-bold " for="description">Description:</label>
+                  <textarea class="form-control w-75" id="description" name="description" rows="3"></textarea>
+               </div>
+			   
+			   
+			   <label class="fixed-width-label font-weight-bold" for="categories">Categories:</label><br/>
+			   
+               <div class="form-group categories" id="categories">
+                
+                  <input class="form-check-input" type="checkbox" value="category_SchoolBook" id="category_SchoolBook" name="category_SchoolBook">
+                  <label class="form-check-label" for="category_SchoolBook">School Book</label>
+                  <input class="form-check-input" type="checkbox" value="category_Fantasy" id="category_Fantasy">
+                  <label class="form-check-label" for="category_Fantasy">Fantasy</label> <br/>
+				  
+                  <input class="form-check-input" type="checkbox" value="category_Poetry" id="category_Poetry"><label class="form-check-label" for="category_Poetry">Poetry</label>
+                  <input class="form-check-input" type="checkbox" value="category_ScienceFiction" id="category_ScienceFiction"><label class="form-check-label" for="category_ScienceFiction">Science Fiction</label> <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_Horror" id="category_Horror"><label class="form-check-label" for="category_Horror">Horror</label>
+                  <input class="form-check-input" type="checkbox" value="category_Drama" id="category_Drama"><label class="form-check-label" for="category_Drama">Drama</label>  <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_Romance" id="category_Romance"><label class="form-check-label" for="category_Romance">Romance</label>
+                  <input class="form-check-input" type="checkbox" value="category_ManagementAndEconomy" id="category_ManagementAndEconomy"><label class="form-check-label" for="category_ManagementAndEconomy">Management and Economy</label>  <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_PopularScience" id="category_PopularScience"><label class="form-check-label" for="category_PopularScience">Popular Science</label>
+                  <input class="form-check-input" type="checkbox" value="category_Religion" id="category_Religion"><label class="form-check-label" for="category_Religion">Religion</label>  <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_Novel" id="category_Novel"><label class="form-check-label" for="category_Novel">Novel</label>
+                  <input class="form-check-input" type="checkbox" value="category_Fairytale" id="category_Fairytale"><label class="form-check-label" for="category_Fairytale">Fairytale</label>  <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_ShortStory" id="category_ShortStory"><label class="form-check-label" for="category_ShortStory">Short Story</label>
+                  <input class="form-check-input" type="checkbox" value="category_Reportage" id="category_Reportage"><label class="form-check-label" for="category_Reportage">Reportage</label> <br/>
+                  
+				  <input class="form-check-input" type="checkbox" value="category_DetectiveStory" id="category_DetectiveStory"><label class="form-check-label" for="category_DetectiveStory">Detective Story</label>
+                  <input class="form-check-input" type="checkbox" value="category_Thriller" id="category_Thriller"><label class="form-check-label" for="category_Thriller">Thriller</label> <br/>
+				  
+				  <input class="form-check-input" type="checkbox" value="category_Biography" id="category_Biography">
+				  <label class="form-check-label" for="category_Biography">Biography</label>
+
+				  <input class="form-check-input" type="checkbox" value="category_History" id="category_History">
+				  <label class="form-check-label" for="category_History">History</label>  <br/>
+
+				  <input class="form-check-input" type="checkbox" value="category_Tourism" id="category_Tourism">
+				  <label class="form-check-label" for="category_Tourism">Tourism</label>
+
+				  <input class="form-check-input" type="checkbox" value="category_Guide" id="category_Guide">
+				  <label class="form-check-label" for="category_Guide">Guide</label>  <br/>
+               </div>
+
+               <br/> 
+               <!-- <button type="submit" value="Submit" class="btn btn-info">Log in</button> -->
+			    <div class="left-side-buttons"> 
+                  <a href="showBook.html"><button type="button" value="Submit" class="btn btn-success book-rental-btn">Create</button></a>
+			    </div>
+            </form>
+         </div>
+      </div>
+	  <div class="big-space"></div>
+
+   </body>
+</html>

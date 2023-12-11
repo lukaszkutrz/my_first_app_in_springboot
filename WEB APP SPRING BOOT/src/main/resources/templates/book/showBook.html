@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+   <title>Book Details</title>
+   <th:block th:replace="fragments/links-to-css-and-js"></th:block>
+   </head>
+   <body>
+   
+      <div th:replace="fragments/alerts"></div>
+      
+      <div class="main-container show-item-panel ml-5 mr-5 mt-4 w-85 p-4">
+       
+         <div th:replace="fragments/app-title"></div>
+         <div th:replace="fragments/navbar"></div>
+         
+         <div class="page-title">
+            <h4>Show Book Info</h4>
+            <hr class="hr-below-pagetitle">
+         </div>
+         
+         <div class="page-content">
+            <table class="show-item-table">
+               <form th:action="@{/books/{id}(id=${bookId})}" th:object="${book}">
+                  <table class="table book-rental-table show-item-table">
+                     <tr>
+                        <td class="rowTitle fat">Book Id:</td>
+                        <td class="content fat" th:text="${book.bookId}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Title:</td>
+                        <td class="content" th:text="${book.title}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Author:</td>
+                        <td class="content" th:text="${book.author}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Shelf in Library Building:</td>
+                        <td class="content" th:text="${book.shelf}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">ISBN:</td>
+                        <td class="content" th:text="${book.isbn}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Categories:</td>
+                        <td class="content" th:text="${book.categories}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Description:</td>
+                        <td class="content" th:text="${book.description}"></td>
+                     </tr>
+                     <tr>
+                        <td class="rowTitle">Year of publication:</td>
+                        <td class="content" th:text="${book.yearOfPublication}"></td>
+                     </tr>
+ 
+                  </table>
+                  
+                  <div class="small-space"></div>
+                  <hr/>
+                  
+                  <div class="control-buttons">
+                     <a sec:authorize="hasRole('ROLE_LIBRARIAN')" th:href="@{/edit/books/{id}(id=${book.bookId})}">
+                     <button type="button" value="submit" class="btn btn-info book-rental-btn">Edit Book</button>
+                     </a>
+                     <a sec:authorize="hasRole('ROLE_LIBRARIAN')" th:href="@{/delete/books/{id}(id=${book.bookId})}">
+                     <button type="button" value="submit" class="btn btn-danger book-rental-btn delete-item-button">Remove</button>
+                     </a>
+                  </div>
+               </form>
+               
+               <div sec:authorize="hasRole('ROLE_LIBRARIAN')" class="rent-book">
+                  <form th:if="${canBeRented}" action="#"
+                     th:action="@{/rent-books/{id}(id=${book.bookId})}" th:object="${book}" method="post">
+                     <label for="userLibraryCardId" class="inline-label">LIB CARD ID:</label>
+                     <input type="number" th:value="${userLibraryCardId}"
+                        class="form-control very-small-input-inline" id="userLibraryCardId"
+                        name="userLibraryCardId"/>
+                     <div class="submit-div">
+                        <input type="submit" value="Rent Book" class="btn btn-success book-rental-btn-mini">&nbsp;|
+                     </div>
+                  </form>
+                  
+                 
+               </div>
+               
+               <th:block th:if="${canBeRented}" sec:authorize="!hasRole('ROLE_LIBRARIAN')">
+	                  <div>This book is <b>available</b></div>
+	           </th:block>
+               
+               <th:block th:if="${!canBeRented}">
+                  	  <th:block sec:authorize="hasRole('ROLE_LIBRARIAN')">
+	                  	<div>Rented by user with ID: 
+	                  		<div class="message-rented" th:text="${cardIdOfUserThatRentedBook}"></div> 
+	                  	</div>
+	                  </th:block>
+	                  
+	                  <th:block sec:authorize="!hasRole('ROLE_LIBRARIAN')">
+	                  	    <div>This book is <b>already rented!</b></div>
+	                  </th:block>
+                </th:block>
+            </table>
+         </div>
+         
+      </div>
+      
+      <div class="big-space"></div>
+   </body>
+</html>

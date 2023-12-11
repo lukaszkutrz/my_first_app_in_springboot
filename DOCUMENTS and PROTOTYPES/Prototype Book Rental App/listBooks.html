@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+      <link rel="stylesheet" href="bookRental.css">
+	  </head>
+   <body>
+      <div class="main-container item-listing-panel ml-5 mr-5 mt-4 w-85 p-4">
+	  
+         <div class="title-panel">
+            <h1>Book Rental <span class="brownlabel"> Management System</span></h1>
+         </div>
+         
+		 <div class="navigation">
+            <hr class="hr-menu">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <!-- ^ another option "light" -->
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Main Menu</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listBooks.html">Search Books</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listUsers.html">Search Users</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="addBook.html">New Book</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="addUser.html">New User</a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <hr class="hr-menu">
+         </div>
+		 
+         <div class="page-title">
+            <h4>Search Books</h4>
+            <hr class="hr-below-pagetitle">
+         </div>
+         
+		 <div class="searchingPanel">
+            <div class="form-group">
+               <label class="fixed-width-label-narrow" for="booktitle">Book title: &nbsp;</label>
+               <input type="text" class="form-control medium-input-inline" id="booktitle" name="booktitle">
+            </div>
+			 <div class="form-group">
+               <label class="fixed-width-label-narrow" for="category">Category: &nbsp;</label>
+               <input type="text" class="form-control medium-input-inline" id="category" name="category">
+            </div>
+			
+			<div class="form-group">
+               <label class="fixed-width-label-narrow" for="author">Author: &nbsp;</label>
+               <input type="text" class="form-control medium-input-inline" id="author" name="author">
+            </div>
+
+            <div class="left-side-buttons"> 
+               <button type="button" value="Submit" class="btn btn-success book-rental-btn-mini">Search</button>
+            </div>
+         </div>
+         <hr/>
+         <div class="page-content">
+            <div class="small-space"></div>
+            
+               <table class="table table-striped book-rental-table">
+                  <tr>
+				     <th></th>
+                     <th>Title:</th>
+					 <th>Author:</th>
+                     <th>Categories:</th>
+                     <th class="align-center">Operations</th>
+                  </tr>
+                  <tr>
+				     <td class="content"><span class="free">(F)</span></td>
+				     <td class="content">Fellowship of the Ring</td>
+                     <td class="content">J.R.R Tolkien</td>
+                     <td class="content">Fantasy</td>
+                     <td class="content large-column align-center">
+					 
+						<label for="username" class="inline-label">LIB CARD ID:</label>
+						<input type="number" class="form-control very-small-input-inline" id="userLibraryCardID" name="userLibraryCardID"/>
+						<button type="button" value="Submit" class="btn btn-success ">Rent Book</button>
+               			
+						<span>|</span>
+                  
+                        <a href="showBook.html"><button type="button" value="Submit" class="btn btn-secondary book-rental-btn-mini">View Info</button></a>
+                        <a href="addBook.html"><button type="button" value="Submit" class="btn btn-warning book-rental-btn-mini">Edit</button></a>
+                     </td>
+                  </tr>
+                  <tr>
+				     <td class="content"><span class="free">(F)</span></td>
+                     <td class="content">Murder In Orient Express</td>
+                     <td class="content">Agata Christie</td>
+                     <td class="content">Detective Story</td>
+                     <td class="content large-column align-center">
+					 
+						<label for="username" class="inline-label">LIB CARD ID:</label>
+						<input type="number" class="form-control very-small-input-inline" id="userLibraryCardID" name="userLibraryCardID"/>
+						<button type="button" value="Submit" class="btn btn-success ">Rent Book</button>
+               			
+						<span>|</span>
+                  
+                        <a href="showBook.html"><button type="button" value="Submit" class="btn btn-secondary book-rental-btn-mini">View Info</button></a>
+                        <a href="addBook.html"><button type="button" value="Submit" class="btn btn-warning book-rental-btn-mini">Edit</button></a>
+                     </td>
+                  </tr>
+                  <tr>
+				     <td class="content"><span class="booked">[B]</span></td>
+                     <td class="content">Little Prince</td>
+                     <td class="content">Antoine de Saint-Exupéry</td>
+                     <td class="content">Fairy Tale</td>
+                     <td class="content large-column align-center">
+					 
+                        <a href="showBook.html"><button type="button" value="Submit" class="btn btn-secondary book-rental-btn-mini">View Info</button></a>
+                        <a href="addBook.html"><button type="button" value="Submit" class="btn btn-warning book-rental-btn-mini">Edit</button></a>
+                     </td>
+                  </tr>
+               </table>
+			   
+               <div class="small-space"></div>
+               
+			   <div class="left-side-buttons"> 
+                  <a href="addBook.html"><button type="button" value="Submit" class="btn btn-success book-rental-btn-mini">Add New Book</button></a>
+               </div>
+            </div>
+      </div>
+	  
+      <div class="big-space"></div>
+   </body>
+</html>

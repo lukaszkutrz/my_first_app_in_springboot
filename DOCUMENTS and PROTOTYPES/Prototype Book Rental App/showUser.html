@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+      <link rel="stylesheet" href="bookRental.css">
+	  </head>
+   <body>
+      <div class="main-container show-item-panel ml-5 mr-5 mt-4 w-70 p-4">
+	  
+         <div class="title-panel">
+            <h1>Book Rental <span class="brownlabel"> Management System</span></h1>
+         </div>
+		 
+         <div class="navigation">
+            <hr class="hr-menu">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <!-- ^ another option "light" -->
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Main Menu</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listBooks.html">Search Books</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="listUsers.html">Search Users</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="addBook.html">New Book</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="addUser.html">New User</a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <hr class="hr-menu">
+         </div>
+		 
+         <div class="page-title">
+            <h4>Show User Info</h4>
+            <hr class="hr-below-pagetitle">
+         </div>
+		 
+         <div class="page-content">
+            <form action="/login">
+               <table class="show-item-table">
+			      <tr>
+                     <td class="rowTitle">Library Card ID:</td>
+                     <td class="content"><span class="card-id-span"> 324 123</span></td>
+                  </tr>
+                  <tr>
+                     <td class="rowTitle">Username:</td>
+                     <td class="content">Jan Kowalski</td>
+                  </tr>
+                  <tr>
+                     <td class="rowTitle">Login:</td>
+                     <td class="content">KoowalskiJ123</td>
+                  </tr>
+                  <tr>
+                     <td class="rowTitle">Role:</td>
+                     <td class="content">Reader</td>
+                  </tr>
+               </table>
+			   
+               <div class="big-space"></div>
+			   
+               <div class="control-buttons"> 
+                  <a href="addUser.html"><button type="button" value="Submit" class="btn btn-warning book-rental-btn">Edit</button></a>
+                  <button type="button" value="Submit" class="btn btn-danger book-rental-btn">Remove</button>
+               </div>
+            </form>
+         </div>
+      </div>
+	  
+	  <div class="big-space"></div>
+   </body>
+</html>
