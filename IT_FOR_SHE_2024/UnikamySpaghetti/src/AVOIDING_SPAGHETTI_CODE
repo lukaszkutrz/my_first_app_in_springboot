@@ -1,0 +1,50 @@
+
+Wymagania:
+####################
+Ja u¿y³em Javy 21 do skompilowania & uruchomienia programu,
+
+
+O co tutaj chodzi?
+####################
+
+Mamy dwie wersje dok³adnie tego samego problemu - wyliczamy wyp³aty, premie i urlopy dla pracowników,
+
+Kod dzia³a dok³adnie tak samo! Z tym, ¿e jedna z wersji jest "³atwiejsza w obyciu"
+
+Pierwsz¹ uruchamiamy w XMain_BadCode, drug¹ za pomoc¹ XMain_BetterCode,
+
+W wersji Bad Code (Spaghetti), patrzymy na klasê:
+Employee.java - s¹ tutaj zrealizowane wszystkie operacje,
+
+z kolei jej odpowiednikiem w GoodCode jest a¿ 5 klas:
+
+----> Intern
+----> Contractor      
+----> RegularEmployee (bazuj¹ na nim 2 kolejne klasy:)
+-------> Manager
+-------> PartTimeEmployee 
+
+
+Co ten przyk³ad ma na celu? Co nale¿y zrobiæ?
+################################################################################
+
+Przejrzeæ Employee oraz jego alternatywê, zawieraj¹c¹ dok³adnie ten sam kod, ale rozbity na 5 klas 
+(Intern, Manager, RegularEmployee, Contractor, PartTimeEmployee itd),
+
+ Benefit 1 - Powinnaœ/Powinieneœ zauwa¿yæ, ¿e wszystko latwiej sie czyta i du¿o latwiej jest to zrozumiec
+w przypadku BetterCode,
+
+ Benfit 2- Oprocz tego nie mamy ju¿ ci¹g³ego sprawdzania typów jak w Employee:
+
+	if (TypeOfEmployee.REGULAR.equals(type) || TypeOfEmployee.CONTRACTOR.equals(type)
+				|| TypeOfEmployee.PART_TIME_REGULAR.equals(type)) {
+				
+ Benefit 3 - Kolejn¹ zalet¹ jest ³atiejsza modyfikacja (wprowadzanie zmian),
+
+
+Jak to analizowaæ?
+#######################
+
+Obejrzyj kod Managera oraz kod Employee równie¿ dotycz¹cy Managera 
+- który jest ³atwiejszy do zrozumienia?
+

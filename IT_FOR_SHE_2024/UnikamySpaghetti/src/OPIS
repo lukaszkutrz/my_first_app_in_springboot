@@ -1,0 +1,70 @@
+
+W naszej aplikacji zardz¹dzamy ró¿nego rodzaju pracownikami i wyliczamy ró¿ne rzeczy:
+
+- wyp³atê (w zale¿noœci od np. stanowiska JUNIOR, SENIOR, EXPERT itd)
+- premiê roczn¹ (w oparciu o podstawê premii np. 5000),
+- iloœæ dni urlopowych ( w zale¿noœci od przepracowanych lat ogó³em )
+- severance payment czyli odprawê przy zwolnieniu (zale¿y od liczby przepracowanych lat w firmie),
+
+--------------------------------------
+Hierarchia naszych pracowników:
+
+-> BaseEmployee
+----> Intern
+----> Contractor      (zarabia wiêcej, ale ma mniej urlopu i nie przys³uguje mu odprawa)
+----> RegularEmployee 
+-------> Manager
+-------> PartTimeEmployee (ma niepe³ny etat, wiêc dostanie mniejsz¹ premiê, mniej wyp³aty, mniej urlopu itp)
+
+---------------------------------------
+
+
+1) Iloœæ dni urlopowych
+##########################
+
+Manager, RegularEmployee to zwykli pracownicy, maj¹ 20/26 w zale¿noœci od sta¿u pracy,
+
+PartTimeEmployee ma mniejszy etat, wiêc proporcjonalnie mniej urlopu,
+
+Kontraktorzy maj¹ 15 dni urlopowych w roku, a sta¿yœci (Intern) nie maj¹ urlopu
+
+2) pensja
+############
+
+Managerzy maj¹ ustalon¹ pensjê,
+Sta¿yœci maj¹ ustalon¹ pensjê...
+
+Pensja RegularEmployee zale¿y od pozycji (JUNIOR, MID, SENIOR, EXPERT)
+
+Kontraktor ma o 20% wiêcej pensji ni¿ odpowiedni RegularEmployee (kontraktorzy te¿ s¹ JUNIOR, SENIOR itp)
+
+UWAGA! Je¿eli pracownik jest karany, dostanie mniejsz¹ wyp³atê (nie mo¿emy karaæ sta¿ystów i kontraktorów
+bo to inne formy zatrudnienia)!
+
+3) premia roczna
+################
+
+Premia roczna zale¿y od pewnej wartoœci bazowej,
+
+Managerowie dostaj¹ bonus dwukrotnoœæ wartoœci bazowej,
+
+Kontraktor otrzyma podstawow¹ wartoœc premii,
+
+RegularEmployee otrzyma 
+
+Sta¿ysta (Intern) nie dostanie nic,
+
+UWAGA! Je¿eli pracownik jest karany, nie dostanie bonusu (nie mo¿emy karaæ sta¿ystów i kontraktorów
+bo to inne formy zatrudnienia)!
+
+4) odprawa (severance payment)
+################################
+
+Nie dostan¹ jej kontratorzy ani sta¿yœci (Intern),
+
+W przypadku managerów, part-time employee oraz regular employee jej wysokoœæ zale¿y
+od liczby przepracowanych lat w tej firmie,
+
+1 pensja dla <2 lat
+2 pensje dla <8 lat
+3 pensje dla >=8 lat
