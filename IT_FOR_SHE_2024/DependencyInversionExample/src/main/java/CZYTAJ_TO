@@ -1,0 +1,35 @@
+
+Requirements
+#################
+
+- java - użyłem javy 17, trzeba zapewnić żeby IDE używało równie wysokiej javy
+
+- maven - używamy go żeby ściągnąć niezbędne zależności, jeśli używasz eclipse -> klikasz na pom + Update
+
+- w klasie "ShowInExcel" należy podać własną ścieżkę do folderu docelowego,
+
+- program uruchamiamy za pomocą "MainBadCode" lub "MainGoodCode",
+
+
+O co chodzi w tym przykladzie?
+##############################
+
+Mamy aplikację wyświetlającą dane dotyczące czytelnictwa,
+
+Możemy wybrać metodę prezentacji jako:
+- tekstowa w konsoli,
+- wykresy,
+- tworzenie plikow excel z danymi,
+
+No i teraz dochodzimy do sedna:
+
+- Zalozmy, ze aktualnie mamy ustawione: "ShowAsText"
+
+- Chcemy zmienic metode na "ShowAsDiagram".
+
+Jesli używamy konkretnej klasy (MainBadCode) -> to żeby to osiągnąć musimy dokonać zmiany w aż 6 miejscach,
+
+Jeśli zaś skorzystaliśmy z Interfejsu (MainGoodCode) -> wystarczy zmiana w jednym miejscu,
+
+W świecie rzeczywistym nasze zmiany nie będą tak trywialne jak w tym przykładzie, więc lepiej zawsze korzystać z 
+interfejsów / klas abstrakcyjnych zamiast konkretnej implementacji!
