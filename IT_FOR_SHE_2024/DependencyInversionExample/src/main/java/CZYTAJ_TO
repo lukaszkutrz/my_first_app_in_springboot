@@ -1,4 +1,14 @@
 
+Struktura klas:
+##################
+
+--> BookReadersPresentation   (wspolny interfejs) 
+.
+-----> ShowAsText
+-----> ShowAsDiagram
+-----> ShowInExcell 
+
+
 Requirements
 #################
 
